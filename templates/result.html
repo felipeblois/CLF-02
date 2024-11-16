@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado Final</title>
+</head>
+<body>
+    <h1>Resultado do Questionário</h1>
+    <p>Você respondeu <strong>{{ total_questions }}</strong> perguntas.</p>
+    <p>Corretas: <strong>{{ correct_answers }}</strong></p>
+    <p>Incorretas: <strong>{{ incorrect_answers }}</strong></p>
+
+    <h2>Respostas e Feedback</h2>
+    <ul>
+        {% for feedback in feedback_list %}
+        <li>{{ feedback }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Tentar Novamente</a>
+</body>
+</html>

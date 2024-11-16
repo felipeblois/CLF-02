@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário AWS</title>
+</head>
+<body>
+    <h1>Questionário AWS</h1>
+    <form method="POST">
+        <p><strong>Pergunta {{ question_index + 1 }} de {{ total_questions }}</strong></p>
+        <p>{{ question["question"] }}</p>
+        {% for option in question["options"] %}
+        <div>
+            <input type="radio" id="{{ option }}" name="option" value="{{ option }}" required>
+            <label for="{{ option }}">{{ option }}</label>
+        </div>
+        {% endfor %}
+        <button type="submit">Responder</button>
+    </form>
+
+    {% if answers %}
+    <h2>Respostas Anteriores</h2>
+    <ul>
+        {% for i in range(answers|length) %}
+        <li><strong>Pergunta {{ i + 1 }}:</strong> {{ feedback[i] }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
